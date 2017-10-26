@@ -5,7 +5,6 @@ import java.util.concurrent.ThreadLocalRandom;
 import controller.IController;
 import model.IGameLogic;
 import model.card.type.ICard;
-import model.card.type.NullCard;
 
 public class UnSkipedState implements IState {
 
@@ -23,6 +22,7 @@ public class UnSkipedState implements IState {
 	public ICard getCardToPlay(RandomPlayer cPlayer, IGameLogic game, IController ctrl) {
 		if (cPlayer.needsToDrawCard(game.getCurrentPlayedCard())) {
 			game.drawOneCard(cPlayer);
+			return cPlayer.hand.get(cPlayer.getHandSize() - 1);
 		}
 		int i = ThreadLocalRandom.current().nextInt(0, cPlayer.getHandSize());
 		while (!cPlayer.hand.get(i).isPlayableOver(game.getCurrentPlayedCard()))
