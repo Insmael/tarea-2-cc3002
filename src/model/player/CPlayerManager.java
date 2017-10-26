@@ -9,14 +9,13 @@ public class CPlayerManager implements IPlayerManager {
 
 	ArrayList<IPlayer> players;
 	int current;
-	Direction direction;
+	int direction;
 	boolean skipPlayer;
 
 	public CPlayerManager(ArrayList<IPlayer> players) {
 		this.players = players;
 		current = ThreadLocalRandom.current().nextInt(0, players.size() - 1);
-		;
-		direction = Direction.COUNTERCLOCKWISE;
+		direction = 1;
 		skipPlayer = false;
 	}
 
@@ -32,16 +31,18 @@ public class CPlayerManager implements IPlayerManager {
 
 	@Override
 	public void invertDirection() {
-		if (direction == Direction.CLOCKWISE)
-			direction = Direction.COUNTERCLOCKWISE;
-		else
-			direction = Direction.CLOCKWISE;
+		direction *= -1;
 
 	}
 
 	@Override
 	public void startTurn() {
 		current = nextPlayer();
+		if (skipPlayer) {
+			getCurrentPlayer().setSkiped();
+			skipPlayer = false;
+		} else
+			getCurrentPlayer().setUnskiped();
 	}
 
 	@Override
@@ -50,7 +51,7 @@ public class CPlayerManager implements IPlayerManager {
 	}
 
 	private int nextPlayer() {
-		int nextp = direction.getValue() + current;
+		int nextp = direction + current;
 		if (nextp < 0)
 			nextp = players.size() - 1;
 		else if (nextp == players.size())

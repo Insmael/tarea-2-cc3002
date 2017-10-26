@@ -52,7 +52,6 @@ public class CCardPileManager implements ICardPilesManager {
 		}
 		if (0 < cardsNumber && cardsNumber <= getDrawableCardsNumber()) {
 			rebuildDeck();
-			// TODO verificar que efectivamente se puede usar el metodo addAll
 			drawedCards.addAll(drawCards(cardsNumber));
 		}
 		return drawedCards;

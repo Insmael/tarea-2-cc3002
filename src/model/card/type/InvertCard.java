@@ -11,7 +11,7 @@ public class InvertCard extends CCard {
 
 	@Override
 	public void executeAction(IGameLogic game, IController ctrl) {
-		if (game.getNumOfPlayers() == 2) {
+		if (game.getNumOfPlayers() < 3) {
 			game.skipPlayer();
 			ctrl.showMessage("el siguiente jugador pierde su turno.");
 		} else {

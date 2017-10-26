@@ -9,10 +9,7 @@ public class HumanPlayer extends CPlayer {
 
 	@Override
 	public ICard getCardToPlay(IGameLogic game, IController ctrl) {
-		int i = ctrl.AskForCardFromHand(this);
-		if (i == getHandSize())
-			game.drawOneCard(this);
-		return getCardFromHand(i);
+		return state.getCardToPlay(this, game, ctrl);
 	}
 
 	@Override

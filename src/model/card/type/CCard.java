@@ -29,7 +29,6 @@ public class CCard implements ICard {
 
 	@Override
 	public boolean isFirstPlayable() {
-		// TODO Auto-generated method stub
 		return this.color != Color.NONE;
 	}
 

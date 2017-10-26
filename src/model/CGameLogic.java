@@ -53,13 +53,13 @@ public class CGameLogic implements IGameLogic {
 
 	@Override
 	public void startTurn(IController ctrl) {
+		playerManager.startTurn();
+		drawCardsFromWell(getCurrentPlayer(), ctrl);
 		if (!getCurrentPlayer().hasOneCard()) {
 			getCurrentPlayer().setSaidUNO(false);
 		}
 		if (getCurrentPlayer().hasOneCard() && !getCurrentPlayer().hasSaidUNO())
 			autoShoutUNO(ctrl);
-		playerManager.startTurn();
-		drawCardsFromWell(getCurrentPlayer(), ctrl);
 
 	}
 

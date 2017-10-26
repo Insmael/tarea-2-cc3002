@@ -1,4 +1,4 @@
-package model;
+package tests;
 
 import static org.junit.Assert.*;
 
@@ -6,6 +6,8 @@ import org.junit.Before;
 import org.junit.Test;
 
 import controller.ConsoleController;
+import model.CGameLogic;
+import model.IGameLogic;
 import model.player.CPlayerListBuilder;
 import model.player.IPlayerListBuilder;
 import model.player.type.HumanPlayer;
@@ -37,7 +39,7 @@ public class CGameLogicTest {
 		assertTrue(game.isDrawWellEmpty());
 		game.addToDrawWell(5);
 		assertFalse(game.isDrawWellEmpty());
-		game.drawCardsFromWell(null, ctrl);
+		game.drawCardsFromWell(game.getCurrentPlayer(), ctrl);
 		assertTrue(game.isDrawWellEmpty());
 	}
 

@@ -3,11 +3,8 @@ package model.card;
 import java.util.concurrent.ThreadLocalRandom;
 import java.util.ArrayList;
 import java.util.List;
-
-import model.card.type.CCard;
-import model.card.type.Color;
 import model.card.type.ICard;
-import model.card.type.Symbol;
+import model.card.type.NullCard;
 
 public class CCardPile implements ICardPile {
 
@@ -33,7 +30,7 @@ public class CCardPile implements ICardPile {
 		if (!isEmpty())
 			return pile.remove(getSize() - 1);
 		else
-			return new CCard(Color.NONE, Symbol.NONE);
+			return new NullCard();
 	}
 
 	@Override
@@ -41,7 +38,7 @@ public class CCardPile implements ICardPile {
 		if (!isEmpty())
 			return pile.get(getSize() - 1);
 		else
-			return new CCard(Color.NONE, Symbol.NONE);
+			return new NullCard();
 	}
 
 	@Override

@@ -6,7 +6,7 @@ import org.junit.runners.Suite;
 @RunWith(Suite.class)
 
 @Suite.SuiteClasses({ CardCreationTest.class, ICardPilesManagerTest.class, ICardPileTest.class, IDeckStrategyTest.class,
-		IPlayerTest.class, IPlayerListBuilderTest.class })
+		IPlayerTest.class, IPlayerListBuilderTest.class, CGameLogicTest.class })
 
 public class TestSuites {
 

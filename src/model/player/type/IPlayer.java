@@ -112,4 +112,8 @@ public interface IPlayer {
 	 */
 	ICard getCardFromHand(int number);
 
+	void setSkiped();
+
+	void setUnskiped();
+
 }

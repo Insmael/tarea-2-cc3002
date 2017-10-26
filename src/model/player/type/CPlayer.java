@@ -1,7 +1,6 @@
 package model.player.type;
 
 import java.util.ArrayList;
-
 import controller.IController;
 import model.IGameLogic;
 import model.card.type.Color;
@@ -12,11 +11,12 @@ public abstract class CPlayer implements IPlayer {
 
 	protected ArrayList<ICard> hand;
 	protected boolean saidUnoStatus;
-	protected boolean alredyDraw;
+	public IState state;
 
 	public CPlayer() {
 		hand = new ArrayList<ICard>();
 		saidUnoStatus = false;
+		state = new UnSkipedState();
 	}
 
 	@Override
@@ -82,11 +82,19 @@ public abstract class CPlayer implements IPlayer {
 
 	@Override
 	public ICard getCardFromHand(int number) {
-		// TODO ver si se simplifica
 		ICard card = new NullCard();
 		if (number < getHandSize() && number >= 0) {
 			card = hand.get(number);
 		}
 		return card;
+	}
+
+	public void setSkiped() {
+		state = new SkipedState();
+
+	}
+
+	public void setUnskiped() {
+		state = new UnSkipedState();
 	}
 }

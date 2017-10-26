@@ -20,14 +20,7 @@ public class RandomPlayer extends CPlayer {
 
 	@Override
 	public ICard getCardToPlay(IGameLogic game, IController ctrl) {
-		if (needsToDrawCard(game.getCurrentPlayedCard())) {
-			game.drawOneCard(this);
-			alredyDraw = true;
-		}
-		int i = ThreadLocalRandom.current().nextInt(0, getHandSize());
-		while (!hand.get(i).isPlayableOver(game.getCurrentPlayedCard()))
-			i = ThreadLocalRandom.current().nextInt(0, getHandSize());
-		return hand.get(i);
+		return state.getCardToPlay(this, game, ctrl);
 	}
 
 	@Override

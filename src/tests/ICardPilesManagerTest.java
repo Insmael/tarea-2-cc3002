@@ -14,43 +14,43 @@ import model.card.type.Symbol;
 
 public class ICardPilesManagerTest {
 
-	ICardPilesManager cpm;
+	ICardPilesManager cardPileManager;
 
 	@Before
 	public void setUp() {
-		cpm = new CCardPileManager(new CDeckStrategy().createDeck());
+		cardPileManager = new CCardPileManager(new CDeckStrategy().createDeck());
 
 	}
 
 	@Test
 	public void test() {
-		assertEquals(4 + 8 * 13 - 1, cpm.getDrawableCardsNumber());
+		assertEquals(4 + 8 * 13 - 1, cardPileManager.getDrawableCardsNumber());
 	}
 
 	@Test
 	public void testDrawingCards() {
-		cpm.drawCard();
-		assertEquals(4 + 8 * 13 - 1 - 1, cpm.getDrawableCardsNumber());
-		cpm.drawCards(50);
-		assertEquals(4 + 8 * 13 - 1 - 51, cpm.getDrawableCardsNumber());
+		cardPileManager.drawCard();
+		assertEquals(4 + 8 * 13 - 1 - 1, cardPileManager.getDrawableCardsNumber());
+		cardPileManager.drawCards(50);
+		assertEquals(4 + 8 * 13 - 1 - 51, cardPileManager.getDrawableCardsNumber());
 	}
 
 	@Test
 	public void testDiscardPile() {
-		assertEquals(Color.NONE, cpm.getCurrentPlayedCard().getColor());
-		assertEquals(Symbol.NONE, cpm.getCurrentPlayedCard().getSymbol());
-		ICard card = cpm.drawCard();
-		cpm.discard(card);
-		assertEquals(4 + 8 * 13 - 1, cpm.getDrawableCardsNumber());
-		assertEquals(card, cpm.getCurrentPlayedCard());
-		assertEquals(card, cpm.getCurrentPlayedCard());
-		cpm.discard(cpm.drawCard());
-		cpm.discard(cpm.drawCard());
-		cpm.discard(cpm.drawCard());
-		cpm.discard(cpm.drawCard());
-		cpm.rebuildDeck();
-		assertEquals(Color.NONE, cpm.getCurrentPlayedCard().getColor());
-		assertEquals(Symbol.WILD, cpm.getCurrentPlayedCard().getSymbol());
+		assertEquals(Color.NONE, cardPileManager.getCurrentPlayedCard().getColor());
+		assertEquals(Symbol.NONE, cardPileManager.getCurrentPlayedCard().getSymbol());
+		ICard card = cardPileManager.drawCard();
+		cardPileManager.discard(card);
+		assertEquals(4 + 8 * 13 - 1, cardPileManager.getDrawableCardsNumber());
+		assertEquals(card, cardPileManager.getCurrentPlayedCard());
+		assertEquals(card, cardPileManager.getCurrentPlayedCard());
+		cardPileManager.discard(cardPileManager.drawCard());
+		cardPileManager.discard(cardPileManager.drawCard());
+		cardPileManager.discard(cardPileManager.drawCard());
+		cardPileManager.discard(cardPileManager.drawCard());
+		cardPileManager.rebuildDeck();
+		assertEquals(Color.NONE, cardPileManager.getCurrentPlayedCard().getColor());
+		assertEquals(Symbol.WILD, cardPileManager.getCurrentPlayedCard().getSymbol());
 	}
 
 	@Test
