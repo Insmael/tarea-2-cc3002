@@ -7,10 +7,10 @@ import model.card.type.Color;
 import model.card.type.Symbol;
 
 public class CDeckStrategy implements IDeckStrategy {
-	
+
 	protected CardFactory cardFactory = new CardFactory();
 	protected ICardPile deck = new CCardPile();
-	
+
 	@Override
 	public ICardPile createDeck() {
 		addAllOfAColor(Color.BLUE);
@@ -27,20 +27,20 @@ public class CDeckStrategy implements IDeckStrategy {
 		deck.pushCard(cardFactory.createWildAndDrawFour());
 		return deck;
 	}
-	
+
 	public void addOne(Symbol symbol) {
 		cardFactory.setSymbol(symbol);
 		deck.pushCard(cardFactory.createCard());
-		
+
 	}
-	
+
 	public void addTwo(Symbol symbol) {
 		cardFactory.setSymbol(symbol);
 		deck.pushCard(cardFactory.createCard());
 		deck.pushCard(cardFactory.createCard());
-		
+
 	}
-	
+
 	public void addAllOfAColor(Color color) {
 		cardFactory.setColor(color);
 		addOne(Symbol.ZERO);
@@ -53,9 +53,12 @@ public class CDeckStrategy implements IDeckStrategy {
 		addTwo(Symbol.SEVEN);
 		addTwo(Symbol.EIGHT);
 		addTwo(Symbol.NINE);
-		addTwo(Symbol.SKIP);
-		addTwo(Symbol.INVERT);
-		addTwo(Symbol.DRAW_TWO);	
+		deck.pushCard(cardFactory.createDraw(color));
+		deck.pushCard(cardFactory.createDraw(color));
+		deck.pushCard(cardFactory.createInvert(color));
+		deck.pushCard(cardFactory.createInvert(color));
+		deck.pushCard(cardFactory.createSkip(color));
+		deck.pushCard(cardFactory.createSkip(color));
 	}
 
 }
