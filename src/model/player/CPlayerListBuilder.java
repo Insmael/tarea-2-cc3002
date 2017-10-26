@@ -7,11 +7,11 @@ import model.player.type.IPlayer;
 public class CPlayerListBuilder implements IPlayerListBuilder {
 
 	ArrayList<IPlayer> players;
-	
+
 	public CPlayerListBuilder() {
 		players = new ArrayList<IPlayer>();
 	}
-	
+
 	@Override
 	public void addPlayer(IPlayer player) {
 		players.add(player);

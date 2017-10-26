@@ -20,12 +20,12 @@ public class IPlayerListBuilderTest {
 		IPlayerListBuilder playerListBuilder = new CPlayerListBuilder();
 		ArrayList<IPlayer> players;
 		playerListBuilder.addPlayer(new HumanPlayer());
-		for (int i = 0; i<10;i++) {
+		for (int i = 0; i < 10; i++) {
 			playerListBuilder.addPlayer(new RandomPlayer());
 		}
 		players = playerListBuilder.buildPlayerList();
-		
-		assertEquals(11,players.size());
+
+		assertEquals(11, players.size());
 	}
 
 }

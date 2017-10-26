@@ -8,7 +8,7 @@ public class WildAndDrawFourCard extends WildCard {
 	public WildAndDrawFourCard(Color color, Symbol symbol) {
 		super(color, symbol);
 	}
-	
+
 	@Override
 	public void executeAction(IGameLogic game, IController ctrl) {
 		game.addToDrawWell(4);

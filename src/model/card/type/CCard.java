@@ -8,14 +8,15 @@ import model.card.type.Symbol;
 
 /**
  * Class for UNO Cards.
+ * 
  * @author tverdugo
  *
  */
-public class CCard implements ICard{
-	
+public class CCard implements ICard {
+
 	private Color color;
 	private Symbol symbol;
-	
+
 	public CCard(Color color, Symbol symbol) {
 		this.color = color;
 		this.symbol = symbol;
@@ -50,11 +51,11 @@ public class CCard implements ICard{
 	public boolean isDiscardable() {
 		return true;
 	}
-	
+
 	public void setColor(Color color) {
 		this.color = color;
 	}
-	
+
 	@Override
 	public String toString() {
 		String strRep = this.getSymbol().getName() + " " + this.getColor().getName() + ".";

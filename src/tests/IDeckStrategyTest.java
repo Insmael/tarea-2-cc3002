@@ -14,8 +14,8 @@ public class IDeckStrategyTest {
 	public void testCreateDeck() {
 		IDeckStrategy deckStrategy = new CDeckStrategy();
 		ICardPile cardPile = deckStrategy.createDeck();
-		
-		assertEquals(4+8*13, cardPile.getSize());
+
+		assertEquals(4 + 8 * 13, cardPile.getSize());
 	}
 
 }

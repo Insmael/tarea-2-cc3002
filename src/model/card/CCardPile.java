@@ -12,11 +12,11 @@ import model.card.type.Symbol;
 public class CCardPile implements ICardPile {
 
 	List<ICard> pile;
-	
+
 	public CCardPile() {
 		pile = new ArrayList<ICard>();
 	}
-	
+
 	@Override
 	public int getSize() {
 		return pile.size();
@@ -25,13 +25,13 @@ public class CCardPile implements ICardPile {
 	@Override
 	public ICard pushCard(ICard newCard) {
 		pile.add(newCard);
-		return pile.get(getSize()-1);
+		return pile.get(getSize() - 1);
 	}
 
 	@Override
 	public ICard popCard() {
 		if (!isEmpty())
-			return pile.remove(getSize()-1);
+			return pile.remove(getSize() - 1);
 		else
 			return new CCard(Color.NONE, Symbol.NONE);
 	}
@@ -39,7 +39,7 @@ public class CCardPile implements ICardPile {
 	@Override
 	public ICard peekCard() {
 		if (!isEmpty())
-			return pile.get(getSize()-1);
+			return pile.get(getSize() - 1);
 		else
 			return new CCard(Color.NONE, Symbol.NONE);
 	}
@@ -48,7 +48,7 @@ public class CCardPile implements ICardPile {
 	public void shuffle() {
 		List<ICard> newPile = new ArrayList<ICard>();
 		int j;
-		for (int i = getSize(); i>0;i--) {
+		for (int i = getSize(); i > 0; i--) {
 			j = ThreadLocalRandom.current().nextInt(0, i);
 			newPile.add(pile.remove(j));
 		}
@@ -63,7 +63,7 @@ public class CCardPile implements ICardPile {
 	@Override
 	public void pushCards(ICardPile otherPile) {
 		int n = otherPile.getSize();
-		for(int i = 0; i < n; i++) {
+		for (int i = 0; i < n; i++) {
 			pushCard(otherPile.popCard());
 		}
 	}

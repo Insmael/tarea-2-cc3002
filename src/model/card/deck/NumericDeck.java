@@ -14,7 +14,7 @@ public class NumericDeck extends CDeckStrategy {
 		addAllOfAColor(Color.YELLOW);
 		return deck;
 	}
-	
+
 	@Override
 	public void addAllOfAColor(Color color) {
 		cardFactory.setColor(color);

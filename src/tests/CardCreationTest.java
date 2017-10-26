@@ -2,7 +2,6 @@ package tests;
 
 import static org.junit.Assert.*;
 
-
 import org.junit.Test;
 
 import model.card.CardFactory;
@@ -30,14 +29,14 @@ public class CardCreationTest {
 		cardFactory.setColor(Color.NONE);
 		cardFactory.setSymbol(Symbol.ONE);
 		ICard blackCard = cardFactory.createCard();
-		
+
 		assertEquals(Color.RED, redCard.getColor());
 		assertEquals(Color.BLUE, blueCard.getColor());
 		assertEquals(Color.YELLOW, yellowCard.getColor());
 		assertEquals(Color.GREEN, greenCard.getColor());
 		assertEquals(Color.NONE, blackCard.getColor());
 	}
-	
+
 	@Test
 	public void cardSymbolInstantiationtest() {
 		CardFactory cardFactory = new CardFactory();
@@ -45,33 +44,33 @@ public class CardCreationTest {
 		cardFactory.setSymbol(Symbol.ONE);
 		ICard uno = cardFactory.createCard();
 		cardFactory.setSymbol(Symbol.TWO);
-		ICard dos= cardFactory.createCard();
+		ICard dos = cardFactory.createCard();
 		cardFactory.setSymbol(Symbol.THREE);
-		ICard tres= cardFactory.createCard();
+		ICard tres = cardFactory.createCard();
 		cardFactory.setSymbol(Symbol.FOUR);
 		ICard cuatro = cardFactory.createCard();
 		cardFactory.setSymbol(Symbol.FIVE);
 		ICard cinco = cardFactory.createCard();
 		cardFactory.setSymbol(Symbol.SIX);
-		ICard seis= cardFactory.createCard();
+		ICard seis = cardFactory.createCard();
 		cardFactory.setSymbol(Symbol.SEVEN);
-		ICard siete= cardFactory.createCard();
+		ICard siete = cardFactory.createCard();
 		cardFactory.setSymbol(Symbol.EIGHT);
-		ICard ocho= cardFactory.createCard();
+		ICard ocho = cardFactory.createCard();
 		cardFactory.setSymbol(Symbol.NINE);
-		ICard nueve= cardFactory.createCard();
+		ICard nueve = cardFactory.createCard();
 		cardFactory.setSymbol(Symbol.ZERO);
-		ICard cero= cardFactory.createCard();
+		ICard cero = cardFactory.createCard();
 		cardFactory.setSymbol(Symbol.DRAW_TWO);
-		ICard masdos= cardFactory.createCard();
+		ICard masdos = cardFactory.createCard();
 		cardFactory.setSymbol(Symbol.INVERT);
-		ICard invert= cardFactory.createCard();
+		ICard invert = cardFactory.createCard();
 		cardFactory.setSymbol(Symbol.NONE);
 		ICard none = cardFactory.createCard();
 		cardFactory.setSymbol(Symbol.SKIP);
-		ICard skip= cardFactory.createCard();
+		ICard skip = cardFactory.createCard();
 		cardFactory.setSymbol(Symbol.WILD);
-		ICard comodin= cardFactory.createCard();
+		ICard comodin = cardFactory.createCard();
 		cardFactory.setSymbol(Symbol.WILD_DRAW_FOUR);
 		ICard mascuatro = cardFactory.createCard();
 		assertEquals(Symbol.ZERO, cero.getSymbol());
@@ -90,8 +89,7 @@ public class CardCreationTest {
 		assertEquals(Symbol.SKIP, skip.getSymbol());
 		assertEquals(Symbol.WILD, comodin.getSymbol());
 		assertEquals(Symbol.WILD_DRAW_FOUR, mascuatro.getSymbol());
-		
+
 	}
-	
 
 }

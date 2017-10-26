@@ -10,7 +10,7 @@ public class HumanPlayer extends CPlayer {
 	@Override
 	public ICard getCardToPlay(IGameLogic game, IController ctrl) {
 		int i = ctrl.AskForCardFromHand(this);
-		if (i == getHandSize()) 
+		if (i == getHandSize())
 			game.drawOneCard(this);
 		return getCardFromHand(i);
 	}
@@ -19,7 +19,7 @@ public class HumanPlayer extends CPlayer {
 	public Color selectColor(IGameLogic game, IController ctrl) {
 		return ctrl.askForColor();
 	}
-	
+
 	@Override
 	public String toString() {
 		return "jugador humano.";

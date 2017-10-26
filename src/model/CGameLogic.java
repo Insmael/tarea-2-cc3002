@@ -16,20 +16,19 @@ public class CGameLogic implements IGameLogic {
 	ICardPilesManager cardPileManager;
 	IPlayerManager playerManager;
 	ArrayList<ICard> drawWell;
-	
+
 	public CGameLogic(ArrayList<IPlayer> players) {
 		cardPileManager = new CCardPileManager(new CDeckStrategy().createDeck());
 		playerManager = new CPlayerManager(players);
-		drawWell =new ArrayList<ICard>();
-		for (IPlayer player: playerManager.getPlayers()) {
+		drawWell = new ArrayList<ICard>();
+		for (IPlayer player : playerManager.getPlayers()) {
 			cardPileManager.addCardsToPlayer(player, 7);
 		}
 	}
-	
-	
+
 	@Override
 	public boolean hasEnded() {
-		for (IPlayer p:playerManager.getPlayers() )
+		for (IPlayer p : playerManager.getPlayers())
 			if (p.hasWon()) {
 				return true;
 			}
@@ -58,10 +57,10 @@ public class CGameLogic implements IGameLogic {
 			getCurrentPlayer().setSaidUNO(false);
 		}
 		if (getCurrentPlayer().hasOneCard() && !getCurrentPlayer().hasSaidUNO())
-			autoShoutUNO(ctrl);	
+			autoShoutUNO(ctrl);
 		playerManager.startTurn();
 		drawCardsFromWell(getCurrentPlayer(), ctrl);
-			
+
 	}
 
 	@Override
@@ -106,7 +105,7 @@ public class CGameLogic implements IGameLogic {
 		if (playedCard.isPlayableOver(cardPileManager.getCurrentPlayedCard())) {
 			playedCard.executeAction(this, ctrl);
 			getCurrentPlayer().removeCardFromHand(playedCard);
-			if(playedCard.isDiscardable())
+			if (playedCard.isDiscardable())
 				cardPileManager.discard(playedCard);
 			return true;
 		}
@@ -127,14 +126,13 @@ public class CGameLogic implements IGameLogic {
 
 	@Override
 	public void announceWinner(IController ctrl) {
-		for (IPlayer p:playerManager.getPlayers() )
+		for (IPlayer p : playerManager.getPlayers())
 			if (p.hasWon()) {
 				ctrl.showMessage("el ganador es " + p + "!");
 				break;
 			}
 
 	}
-
 
 	@Override
 	public int getNumOfPlayers() {

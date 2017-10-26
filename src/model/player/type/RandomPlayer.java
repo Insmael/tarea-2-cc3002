@@ -8,10 +8,10 @@ import model.card.type.Color;
 import model.card.type.ICard;
 
 public class RandomPlayer extends CPlayer {
-	
+
 	static int num = 1;
 	int myNum;
-	
+
 	public RandomPlayer() {
 		super();
 		myNum = num;
@@ -25,8 +25,8 @@ public class RandomPlayer extends CPlayer {
 			alredyDraw = true;
 		}
 		int i = ThreadLocalRandom.current().nextInt(0, getHandSize());
-		while(!hand.get(i).isPlayableOver(game.getCurrentPlayedCard()))
-				i = ThreadLocalRandom.current().nextInt(0, getHandSize());
+		while (!hand.get(i).isPlayableOver(game.getCurrentPlayedCard()))
+			i = ThreadLocalRandom.current().nextInt(0, getHandSize());
 		return hand.get(i);
 	}
 
@@ -35,10 +35,10 @@ public class RandomPlayer extends CPlayer {
 		int i = ThreadLocalRandom.current().nextInt(0, 3);
 		return Color.getColors()[i];
 	}
-	
+
 	@Override
 	public String toString() {
 		return "jugador virtual numero " + myNum + ".";
 	}
-	
+
 }

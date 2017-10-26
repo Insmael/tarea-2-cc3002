@@ -8,7 +8,7 @@ public class SkipCard extends CCard {
 	public SkipCard(Color color, Symbol symbol) {
 		super(color, symbol);
 	}
-	
+
 	@Override
 	public void executeAction(IGameLogic game, IController ctrl) {
 		game.skipPlayer();

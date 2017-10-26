@@ -6,16 +6,16 @@ import java.util.concurrent.ThreadLocalRandom;
 import model.player.type.IPlayer;
 
 public class CPlayerManager implements IPlayerManager {
-	
+
 	ArrayList<IPlayer> players;
 	int current;
 	Direction direction;
 	boolean skipPlayer;
-	
-	
+
 	public CPlayerManager(ArrayList<IPlayer> players) {
 		this.players = players;
-		current = ThreadLocalRandom.current().nextInt(0, players.size()-1);;
+		current = ThreadLocalRandom.current().nextInt(0, players.size() - 1);
+		;
 		direction = Direction.COUNTERCLOCKWISE;
 		skipPlayer = false;
 	}
@@ -48,7 +48,7 @@ public class CPlayerManager implements IPlayerManager {
 	public void skipPlayer() {
 		skipPlayer = true;
 	}
-	
+
 	private int nextPlayer() {
 		int nextp = direction.getValue() + current;
 		if (nextp < 0)

@@ -9,19 +9,19 @@ import model.card.type.ICard;
 import model.card.type.NullCard;
 
 public abstract class CPlayer implements IPlayer {
-	
+
 	protected ArrayList<ICard> hand;
 	protected boolean saidUnoStatus;
 	protected boolean alredyDraw;
-	
+
 	public CPlayer() {
 		hand = new ArrayList<ICard>();
 		saidUnoStatus = false;
 	}
-	
+
 	@Override
 	public void addToHand(ArrayList<ICard> hand) {
-		for (ICard card: hand) {
+		for (ICard card : hand) {
 			this.hand.add(card);
 		}
 	}
@@ -71,7 +71,7 @@ public abstract class CPlayer implements IPlayer {
 	@Override
 	public boolean needsToDrawCard(ICard currentCard) {
 		boolean needs = true;
-		for (ICard card: hand) {
+		for (ICard card : hand) {
 			if (card.isPlayableOver(currentCard)) {
 				needs = false;
 				break;

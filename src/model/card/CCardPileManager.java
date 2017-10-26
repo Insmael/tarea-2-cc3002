@@ -9,19 +9,18 @@ public class CCardPileManager implements ICardPilesManager {
 
 	private ICardPile deck;
 	private ICardPile discards;
-	
-	
+
 	public CCardPileManager(ICardPile deck) {
 		this.deck = deck;
 		discards = new CCardPile();
 		deck.shuffle();
 		discard(drawCard());
-		while(!getCurrentPlayedCard().isFirstPlayable()) {
+		while (!getCurrentPlayedCard().isFirstPlayable()) {
 			rebuildDeck();
 			discard(drawCard());
-		}		
+		}
 	}
-	
+
 	@Override
 	public void rebuildDeck() {
 		ICard lastCard = discards.popCard();
