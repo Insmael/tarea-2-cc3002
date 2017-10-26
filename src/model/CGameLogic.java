@@ -57,8 +57,7 @@ public class CGameLogic implements IGameLogic {
 		drawCardsFromWell(getCurrentPlayer(), ctrl);
 		if (!getCurrentPlayer().hasOneCard()) {
 			getCurrentPlayer().setSaidUNO(false);
-		}
-		if (getCurrentPlayer().hasOneCard() && !getCurrentPlayer().hasSaidUNO())
+		} else if (!getCurrentPlayer().hasSaidUNO())
 			autoShoutUNO(ctrl);
 
 	}
@@ -103,10 +102,11 @@ public class CGameLogic implements IGameLogic {
 	@Override
 	public boolean playCard(ICard playedCard, IController ctrl) {
 		if (playedCard.isPlayableOver(cardPileManager.getCurrentPlayedCard())) {
-			playedCard.executeAction(this, ctrl);
-			getCurrentPlayer().removeCardFromHand(playedCard);
-			if (playedCard.isDiscardable())
+			if (playedCard.isDiscardable()) {
+				playedCard.executeAction(this, ctrl);
+				getCurrentPlayer().removeCardFromHand(playedCard);
 				cardPileManager.discard(playedCard);
+			}
 			return true;
 		}
 		return false;

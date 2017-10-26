@@ -21,8 +21,9 @@ public class UnSkipedState implements IState {
 	@Override
 	public ICard getCardToPlay(RandomPlayer cPlayer, IGameLogic game, IController ctrl) {
 		if (cPlayer.needsToDrawCard(game.getCurrentPlayedCard())) {
+			int m = cPlayer.getHandSize();
 			game.drawOneCard(cPlayer);
-			return cPlayer.hand.get(cPlayer.getHandSize() - 1);
+			return cPlayer.hand.get(m);
 		}
 		int i = ThreadLocalRandom.current().nextInt(0, cPlayer.getHandSize());
 		while (!cPlayer.hand.get(i).isPlayableOver(game.getCurrentPlayedCard()))
